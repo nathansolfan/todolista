@@ -6,9 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>T O D O  L I S T</h1>
-    <!-- <a href="/create">Click me</a> -->
-    <a href=" {{ route('tasks.create')}} ">Create</a>
     
 </body>
 </html>

@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create', function () {
-    return view('create');
-});
+// Route::get('/create', function () {
+//     return view('create');
+// });
 
 Route::resource('tasks', TaskController::class);

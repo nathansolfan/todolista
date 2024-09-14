@@ -8,7 +8,7 @@
 <body>
     <section>
         <h1>Create your Form</h1>
-        <form action=" {{ route('tasks.create')}}" method="POST">
+        <form action=" {{ route('tasks.store')}}" method="POST">
             @csrf
             <div>
             <label for="">Title</label>
