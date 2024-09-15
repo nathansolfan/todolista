@@ -44,7 +44,7 @@ class TaskController extends Controller
     public function show(string $id)
     {
         $response = Task::findOrFail($id);
-        return view('tasks.show');   
+        return view('show');   
     }
 
     /**
@@ -53,7 +53,7 @@ class TaskController extends Controller
     public function edit(string $id)
     {
         Task::findOrfail($id);
-        return view('tasks.edit');
+        return view('edit');
     }
 
     /**
