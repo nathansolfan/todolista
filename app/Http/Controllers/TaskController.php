@@ -13,7 +13,8 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all();
-        return view('welcome', compact('tasks'));
+        return view('welcome', ['tasks' => $tasks]); // associative array
+        // return view('welcome', compact('tasks'));
     }
 
     /**
@@ -32,6 +33,7 @@ class TaskController extends Controller
         // dd($request->title);
         $response = $request->validate([
             'title' => 'required|string',
+            'description' => 'required|string',
         ]);
 
         Task::create($response);
@@ -44,7 +46,7 @@ class TaskController extends Controller
     public function show(string $id)
     {
         $response = Task::findOrFail($id);
-        return view('show');   
+        return view('show', []);   
     }
 
     /**

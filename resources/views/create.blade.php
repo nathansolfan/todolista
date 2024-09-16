@@ -11,11 +11,14 @@
         <form action=" {{ route('tasks.store')}}" method="POST">
             @csrf
             <div>
-            <label for="">Title</label>
-            <input type="text" name="title" id="title">
+                <label for="">Title</label>
+                <input type="text" name="title" id="title" required>
             </div>
-            <button type="submit">Click me</button>
-            
+            <div>
+                <label for="">Description</label>
+                <input type="text" id="description" name="description" required>
+            </div>
+            <button type="submit">Click me</button>            
         </form>
     </section>
 </body>
