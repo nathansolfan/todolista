@@ -7,8 +7,8 @@
 </head>
 <body>
     <section>
-        <h1>Create your Form</h1>
-        <form action=" {{ route('tasks.store')}}" method="POST">
+        <h1>Update your to do list</h1>
+        <form action=" {{ route('tasks.update')}}" method="PUT">
             @csrf
             <div>
                 <label for="">Title</label>
