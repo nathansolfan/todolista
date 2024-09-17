@@ -37,7 +37,7 @@ class TaskController extends Controller
         ]);
 
         Task::create($response);
-        return redirect()->route('welcome');
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -45,8 +45,8 @@ class TaskController extends Controller
      */
     public function show(string $id)
     {
-        $response = Task::findOrFail($id);
-        return view('show', []);   
+        $task = Task::findOrFail($id);
+        return view('show', ['task' => $task]);   
     }
 
     /**
