@@ -1,17 +1,33 @@
+<!-- resources/views/welcome.blade.php -->
 <x-layout>
+  <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div class="container mx-auto px-4">
+          <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">T O D O  L I S T</h1>
+          
+          <div class="flex justify-center mb-6">
+              <a href="{{ route('tasks.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Create New Task
+              </a>
+          </div>
 
-    <h1>T O D O  L I S T</h1>
-    <!-- <a href="/create">Click me</a> -->
-    <a href=" {{ route('tasks.create')}} ">Create</a>
-    {{-- <a href=" {{ route('tasks.show')}} ">Show me</a> --}}
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+          <div class="grid gap-6">
+              @foreach ($tasks as $task)
+                  <div class="bg-white p-6 rounded-lg shadow-md">
+                      <h2 class="text-2xl font-semibold text-gray-800">{{ $task->title }}</h2>
+                      <p class="text-gray-600 mt-2">{{ $task->description }}</p>
 
-    @foreach ( $tasks as $task )
-    <p>{{$task->title}}</p>
-    <p>{{$task->description}}</p>
-    <a href=" {{ route('tasks.show', $task->id)}} ">Show task</a>        
-    @endforeach
-
+                      <div class="mt-4 flex space-x-4">
+                          <a href="{{ route('tasks.show', $task->id) }}" class="text-blue-500 hover:underline">View</a>
+                          <a href="{{ route('tasks.edit', $task->id) }}" class="text-green-500 hover:underline">Edit</a>
+                          <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this task?')">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                          </form>
+                      </div>
+                  </div>
+              @endforeach
+          </div>
+      </div>
+  </div>
 </x-layout>
