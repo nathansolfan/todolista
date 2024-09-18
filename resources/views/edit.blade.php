@@ -8,8 +8,10 @@
 <body>
     <section>
         <h1>Update your to do list</h1>
-        <form action=" {{ route('tasks.update')}}" method="PUT">
+        <form action=" {{ route('tasks.update', $task->id)}}" method="POST">
             @csrf
+            @method('PUT') <!-- Spoofing the PUT request method -->
+
             <div>
                 <label for="">Title</label>
                 <input type="text" name="title" id="title" required>

@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{ $task->title}}</p>
-    <p> {{$task->description}} </p>
+    <p>{{$task->title}}</p>
+    <p>{{$task->description}} </p>
+    <a href=" {{ route('tasks.edit', $task->id)}}">Edit me</a>
 </body>
 </html>
