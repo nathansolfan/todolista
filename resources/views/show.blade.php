@@ -9,6 +9,10 @@
     <p>{{$task->title}}</p>
     <p>{{$task->description}} </p>
     <a href=" {{ route('tasks.edit', $task->id)}}">Edit me</a>
-    <button type="">Delete me</button>
+    <form action="{{route('tasks.destroy', $task->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" onclick="return confirm('Are you sure?')">Delete me</button>
+    </form>
 </body>
 </html>
