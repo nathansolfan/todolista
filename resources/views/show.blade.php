@@ -9,5 +9,6 @@
     <p>{{$task->title}}</p>
     <p>{{$task->description}} </p>
     <a href=" {{ route('tasks.edit', $task->id)}}">Edit me</a>
+    <button type="">Delete me</button>
 </body>
 </html>
