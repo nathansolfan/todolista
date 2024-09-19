@@ -14,11 +14,11 @@
 
             <div>
                 <label for="">Title</label>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" value=" {{old('title', $task->title)}} " required>
             </div>
             <div>
                 <label for="">Description</label>
-                <input type="text" id="description" name="description" required>
+                <input type="text" id="description" name="description" value=" {{old('description', $task->description)}} " required>
             </div>
             <button type="submit">Click me</button>            
         </form>
