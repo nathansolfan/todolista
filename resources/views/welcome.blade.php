@@ -1,5 +1,12 @@
 <!-- resources/views/welcome.blade.php -->
 <x-layout>
+    {{-- success msg --}}
+    @if (session('success'))
+    <div class="text-green-500">
+        {{ session('success')}}
+    </div>        
+    @endif
+
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
       <div class="container mx-auto px-4">
           <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">T O D O  L I S T</h1>

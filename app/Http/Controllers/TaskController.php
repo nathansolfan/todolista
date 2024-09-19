@@ -31,12 +31,15 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         // dd($request->title);
-        $response = $request->validate([
+        $dataValid = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
         ]);
 
-        Task::create($response);
+        $dataValid['completed'] = false; //completed tasks set to false default
+
+        Task::create($dataValid);
+        
         return redirect()->route('tasks.index');
     }
 
