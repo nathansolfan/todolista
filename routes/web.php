@@ -14,4 +14,6 @@ Route::get('/', [TaskController::class, 'index']);
 //     return view('create');
 // });
 
+Route::patch('/tasks/{id}/toggle', [TaskController::class, 'toggleCompleted'])->name('tasks.toggle');
+
 Route::resource('tasks', TaskController::class);

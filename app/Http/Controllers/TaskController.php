@@ -88,4 +88,13 @@ class TaskController extends Controller
         $task->delete($id);
         return redirect()->route('tasks.index');
     }
+
+    public function toggleCompleted($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->completed = !$task->completed;
+        $task->save();
+
+        return redirect()->route('tasks.index');
+    }
 }
