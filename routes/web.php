@@ -1,19 +1,19 @@
-<?php
+    <?php
 
-use App\Http\Controllers\TaskController;
-use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\TaskController;
+    use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
 
-// index method from controller
-Route::get('/', [TaskController::class, 'index']);
+    // index method from controller
+    Route::get('/', [TaskController::class, 'index']);
 
-// Route::get('/create', function () {
-//     return view('create');
-// });
+    // Route::get('/create', function () {
+    //     return view('create');
+    // });
 
-Route::patch('/tasks/{id}/toggle', [TaskController::class, 'toggleCompleted'])->name('tasks.toggle');
+    // Route::patch('/tasks/{id}/toggle', [TaskController::class, 'toggleCompleted'])->name('tasks.toggle');
 
-Route::resource('tasks', TaskController::class);
+    Route::resource('tasks', TaskController::class);

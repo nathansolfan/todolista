@@ -27,13 +27,15 @@
 
                         <div class="mt-4 flex space-x-4">
                             {{-- Toggle completed status form --}}
-                            <form action="{{ route('tasks.toggle', $task->id) }}" method="POST">
+                            <form action="{{ route('tasks.update', $task->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
+                                <input type="hidden" name="completed" value="{{ $task->completed ? 0 : 1 }}">
                                 <button type="submit" class="text-indigo-500 hover:underline">
                                     {{ $task->completed ? 'Mark as Incomplete' : 'Mark as Completed' }}
                                 </button>
                             </form>
+                            
 
                             <a href="{{ route('tasks.show', $task->id) }}" class="text-blue-500 hover:underline">View</a>
                             <a href="{{ route('tasks.edit', $task->id) }}" class="text-green-500 hover:underline">Edit</a>

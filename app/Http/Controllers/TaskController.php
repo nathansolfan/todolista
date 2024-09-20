@@ -65,19 +65,28 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        $task = Task::findOrFail($id); // find or fail  the specified resource in storage if it already exists in the database
-        
-        // validate the requested task
+{
+    $task = Task::findOrFail($id);
+    
+    // Check if you're updating the 'completed' status or the whole task
+    if ($request->has('completed')) {
+        // Only update the 'completed' status
+        $task->completed = !$task->completed;
+    } else {    
+        // Otherwise, update the task with title and description
         $validatedData = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string'
-        ]);  
-        
-        // $task->save();
+        ]);
+
         $task->update($validatedData);
-        return redirect()->route('tasks.index');
     }
+
+    $task->save();
+
+    return redirect()->route('tasks.index')->with('success', 'Task updated successfully!');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,12 +98,12 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    public function toggleCompleted($id)
-    {
-        $task = Task::findOrFail($id);
-        $task->completed = !$task->completed;
-        $task->save();
+    // public function toggleCompleted($id)
+    // {
+    //     $task = Task::findOrFail($id);
+    //     $task->completed = !$task->completed;
+    //     $task->save();
 
-        return redirect()->route('tasks.index');
-    }
+    //     return redirect()->route('tasks.index');
+    // }
 }
