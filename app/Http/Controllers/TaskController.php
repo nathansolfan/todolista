@@ -84,7 +84,7 @@ class TaskController extends Controller
 
     $task->save();
 
-    return redirect()->route('tasks.index')->with('success', 'Task updated successfully!');
+    return redirect()->route('tasks.index');
 }
 
 
