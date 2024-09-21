@@ -18,6 +18,14 @@
                 <label for="">Description</label>
                 <input type="text" id="description" name="description" required>
             </div>
+            <div>
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
             <button type="submit">Click me</button>            
         </form>
     </section>
