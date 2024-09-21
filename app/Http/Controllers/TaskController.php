@@ -34,6 +34,7 @@ class TaskController extends Controller
         $dataValid = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'priority' => 'required|string|in:low,medium,high'
         ]);
 
         $dataValid['completed'] = false; //completed tasks set to false default
@@ -76,10 +77,11 @@ class TaskController extends Controller
         // Otherwise, update the task with title and description
         $validatedData = $request->validate([
             'title' => 'required|string',
-            'description' => 'required|string'
+            'description' => 'required|string',
+            'priority' => 'required|string|in:low,medium, high'
         ]);
 
-        $task->update($validatedData);
+        $task->update($validatedData); // UPDATE the new task
     }
 
     $task->save();
