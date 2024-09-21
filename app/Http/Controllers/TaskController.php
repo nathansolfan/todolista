@@ -30,7 +30,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->title);
+        // dd($request->all());
         $dataValid = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
@@ -78,7 +78,7 @@ class TaskController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'priority' => 'required|string|in:low,medium, high'
+            'priority' => 'required|string|in:low,medium,high'
         ]);
 
         $task->update($validatedData); // UPDATE the new task
