@@ -46,6 +46,10 @@
                                 @method('DELETE')
                                 <button type="submit" class="text-red-500 hover:underline">Delete</button>
                             </form>
+
+                            {{-- display priority --}}
+                            <p class="text-indigo-500"> {{$task->priority}} </p> 
+
                         </div>
                     </div>
                 @endforeach
