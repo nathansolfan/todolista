@@ -10,11 +10,20 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::all();
-        return view('welcome', ['tasks' => $tasks]); // associative array
-        // return view('welcome', compact('tasks'));
+        $priority = $request->query('priority'); // ...com/tasks?priority=high
+
+        if ($priority) {
+            $tasks = Task::where('priority', $priority)->get;
+        } else {
+            $tasks = Task::all();
+        }
+
+        return view('welcome', ['tasks' => $tasks]); // associative array    
+
+        // $tasks = Task::all();
+       
     }
 
     /**
