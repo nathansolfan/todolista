@@ -15,7 +15,7 @@ class TaskController extends Controller
         $priority = $request->query('priority'); // ...com/tasks?priority=high
 
         if ($priority) {
-            $tasks = Task::where('priority', $priority)->get;
+            $tasks = Task::where('priority', $priority)->get();
         } else {
             $tasks = Task::all();
         }

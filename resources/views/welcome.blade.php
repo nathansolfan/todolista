@@ -7,6 +7,14 @@
         </div>        
     @endif
 
+    {{-- Filter Links: Placed above the task list --}}
+    <div class="mb-4 flex items-center justify-center">
+        <a href="{{ route('tasks.index', ['priority' => 'high']) }}" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Show High Priority</a>
+        <a href="{{ route('tasks.index', ['priority' => 'medium']) }}" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">Show Medium Priority</a>
+        <a href="{{ route('tasks.index', ['priority' => 'low']) }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Show Low Priority</a>
+        <a href="{{ route('tasks.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Show All</a>
+    </div>
+
     <div class="min-h-screen bg-gray-100 flex items-center justify-center">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">T O D O  L I S T</h1>
@@ -35,7 +43,6 @@
                                     {{ $task->completed ? 'Mark as Incomplete' : 'Mark as Completed' }}
                                 </button>
                             </form>
-                            
 
                             <a href="{{ route('tasks.show', $task->id) }}" class="text-blue-500 hover:underline">View</a>
                             <a href="{{ route('tasks.edit', $task->id) }}" class="text-green-500 hover:underline">Edit</a>
@@ -47,9 +54,10 @@
                                 <button type="submit" class="text-red-500 hover:underline">Delete</button>
                             </form>
 
-                            {{-- display priority --}}
-                            <p class="text-indigo-500"> {{$task->priority}} </p> 
-
+                            {{-- Display priority with colors based on priority --}}
+                            <p class="text-lg font-bold {{ $task->priority === 'high' ? 'text-red-500' : ($task->priority === 'medium' ? 'text-yellow-500' : 'text-green-500') }}">
+                                Priority: {{ ucfirst($task->priority) }}
+                            </p>
                         </div>
                     </div>
                 @endforeach
