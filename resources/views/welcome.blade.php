@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="flex justify-center mb-6">
-                <a href=" {{ route('users.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create User</a>
+                <a href=" {{ route('users.index')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">User Index</a>
             </div>
 
             <div class="grid gap-6">
