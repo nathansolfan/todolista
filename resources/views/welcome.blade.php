@@ -24,6 +24,9 @@
                     Create New Task
                 </a>
             </div>
+            <div class="flex justify-center mb-6">
+                <a href=" {{ route('users.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create User</a>
+            </div>
 
             <div class="grid gap-6">
                 @foreach ($tasks as $task)
