@@ -31,7 +31,7 @@ class UserController extends Controller
         $user = $request->validate([
             'name' => 'string|required',
             'email' => 'string|required|email',
-            'password' => 'string|required'
+            'password' => 'string|required|confirmed'
         ]);
 
         User::create($user);
