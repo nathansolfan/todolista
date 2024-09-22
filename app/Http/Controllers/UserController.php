@@ -35,6 +35,8 @@ class UserController extends Controller
             'password' => 'string|required|confirmed'
         ]);
 
+        $user['password'] = bcrypt($user['password']);
+
         User::create($user);
 
         return redirect()->route('users.index');
