@@ -22,8 +22,7 @@ class TaskController extends Controller
 
         return view('welcome', ['tasks' => $tasks]); // associative array    
 
-        // $tasks = Task::all();
-       
+        // $tasks = Task::all();       
     }
 
     /**

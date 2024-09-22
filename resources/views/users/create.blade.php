@@ -1,4 +1,5 @@
-<form action="" method="">
+<form action=" {{route('users.store')}} " method="POST">
+    @csrf
     <div>
         <label for="">Name</label>
         <input type="text" name="name" id="name" required>
