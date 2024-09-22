@@ -55,7 +55,7 @@
                             </form>
 
                             {{-- Display priority with colors based on priority --}}
-                            <p class="text-lg font-bold {{ $task->priority === 'high' ? 'text-red-500' : ($task->priority === 'medium' ? 'text-yellow-500' : 'text-green-500') }}">
+                            <p class="{{ $task->priority === 'high' ? 'text-red-500' : ($task->priority === 'medium' ? 'text-yellow-500' : 'text-green-500') }}">
                                 Priority: {{ ucfirst($task->priority) }}
                             </p>
                         </div>
