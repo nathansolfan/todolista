@@ -65,7 +65,14 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedDate = $request->validate([
+            'name' => 'string|',
+            'email' => 'string|email',
+            'password' => 'string|'
+        ]);
+
+        $request->update($validatedDate);
+        
     }
 
     /**
