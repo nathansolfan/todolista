@@ -1,5 +1,7 @@
 <section>
-    <form action=" {{route('tasks.update')}} " method="POST">
+    <form action=" {{route('users.update', $user->id)}} " method="POST">
+        @csrf
+        @method('PUT')
         <div>
             <label for="">Name</label>
             <input type="text" name="name" id="name" value=" {{old('name', $user->name)}} ">
