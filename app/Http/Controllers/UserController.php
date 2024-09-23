@@ -73,6 +73,7 @@ class UserController extends Controller
         ]);
 
         // If password is provided, hash it, otherwise don't update it
+        $validatedDate['password']
 
         $user->update($validatedDate);   
 
