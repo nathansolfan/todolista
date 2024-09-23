@@ -65,13 +65,18 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $user = User::findorFail($id);
         $validatedDate = $request->validate([
-            'name' => 'string|',
-            'email' => 'string|email',
-            'password' => 'string|'
+            'name' => 'string|required',
+            'email' => 'string|required|email|unique:users,email' . $user->id,
+            'password' => 'string|nullable|confirmed'
         ]);
 
-        $request->update($validatedDate);
+        // If password is provided, hash it, otherwise don't update it
+
+        $user->update($validatedDate);   
+
+        return redirect()->route('users.index');
         
     }
 
