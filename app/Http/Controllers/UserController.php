@@ -68,7 +68,7 @@ class UserController extends Controller
         $user = User::findorFail($id);
         $validatedData = $request->validate([
             'name' => 'string|required',
-            'email' => 'string|required|email|unique:users,email' . $user->id,
+            'email' => 'string|required|email|unique:users,email,' . $user->id,
             'password' => 'string|nullable|confirmed'
         ]);
 
@@ -81,8 +81,7 @@ class UserController extends Controller
 
         $user->update($validatedData);   
 
-        return redirect()->route('users.index');
-        
+        return redirect()->route('users.index');        
     }
 
     /**
