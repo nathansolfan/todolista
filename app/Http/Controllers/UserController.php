@@ -66,16 +66,20 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::findorFail($id);
-        $validatedDate = $request->validate([
+        $validatedData = $request->validate([
             'name' => 'string|required',
             'email' => 'string|required|email|unique:users,email' . $user->id,
             'password' => 'string|nullable|confirmed'
         ]);
 
         // If password is provided, hash it, otherwise don't update it
-        $validatedDate['password']
+        if (!empty($validatedData['password'])) {
+            $validatedData['password'] = bcrypt($validatedData['password']);
+        } else {
+            unset($validatedData['password']); // dont update pw if not provided
+        }
 
-        $user->update($validatedDate);   
+        $user->update($validatedData);   
 
         return redirect()->route('users.index');
         
