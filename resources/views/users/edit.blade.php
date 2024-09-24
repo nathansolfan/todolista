@@ -24,6 +24,10 @@
             <label for="">Password</label>
             <input type="text" name="password" id="password">
         </div>
+        <div>
+            <label for="">Confirm Password</label>
+            <input type="text" name="password_confirmation" id="password_confirmation">
+        </div>
         <button type="submit" >Update me</button>
 
     </form>
