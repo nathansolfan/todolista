@@ -81,7 +81,7 @@ class UserController extends Controller
 
         $user->update($validatedData);   
 
-        return redirect()->route('users.index');        
+        return redirect()->route('users.index');
     }
 
     /**
