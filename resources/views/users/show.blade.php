@@ -10,6 +10,7 @@
         <div class="flex justify-between items-center">
             <a href="{{ route('users.edit', $user->id) }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Edit me</a>
             <a href="{{ url()->previous() }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Go Back</a>
+            <a href="{{ route('users.index')}}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" >Home</a>
         </div>
     </div>
 </x-layout>

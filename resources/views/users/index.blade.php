@@ -12,8 +12,9 @@
     </div>
 @endif
 
-    <div class="flex justify-between items-center mb-4">
+    <div class="flex justify-center items-center mb-4">
         <a href=" {{ route('users.create')}}" class="bg-blue-500 text-white px-4 py-2 rounded">Create User</a>
+        <a href=" {{ route('tasks.index')}}" class=" bg-gray-500 text-white px-4 py-2 rounded ">Homepage</a>
     </div>
 
     <div class="grid gap-6">
