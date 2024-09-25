@@ -79,9 +79,9 @@ class UserController extends Controller
             unset($validatedData['password']); // dont update pw if not provided
         }
 
-        $user->update($validatedData);   
+        $user->update($validatedData);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User updated successfully bruh');
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete($id);
-        return redirect()->route('users.index');
+        return redirect()->route('tasks.index');
     }
 }
