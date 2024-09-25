@@ -39,7 +39,7 @@ class UserController extends Controller
 
         User::create($user);
 
-        return redirect()->route('users.index')->with('success', 'User created the account succesfully bruh');
+        return redirect()->route('users.index')->with('success_create', 'User created the account succesfully bruh');
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
         // dd($validatedData);
         $user->update($validatedData);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('users.index')->with('success_update', 'User updated successfully.');
     }
 
     /**
