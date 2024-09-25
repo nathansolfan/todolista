@@ -1,4 +1,10 @@
 <x-layout>
+    
+@if (session('success'))
+<div class="bg-green-500 text-white p-4 rounded mb-4">
+    {{ session('success') }}
+</div>
+@endif
     <div class="flex justify-between items-center mb-4">
         <a href=" {{ route('users.create')}}" class="bg-blue-500 text-white px-4 py-2 rounded">Create User</a>
     </div>

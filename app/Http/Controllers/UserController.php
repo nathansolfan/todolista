@@ -39,7 +39,7 @@ class UserController extends Controller
 
         User::create($user);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User created the account succesfully bruh');
     }
 
     /**
@@ -79,9 +79,10 @@ class UserController extends Controller
             unset($validatedData['password']); // dont update pw if not provided
         }
 
+        // dd($validatedData);
         $user->update($validatedData);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully bruh');
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
     /**
