@@ -20,12 +20,12 @@
         @foreach ($users as $user)
         <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
             <p class="text-xl font-semibold">{{ $user->name }}</p>
-            <p class="text-gray-600">{{ $user->email }}</p>
+            <p class="text-gray-600 ">{{ $user->email }}</p>
             <a href="{{ route('users.show', $user->id) }}" class="text-blue-500 hover:underline mt-2 block">Show me</a>
             <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Delete User</button>
+                <button type="submit" class="text-red-500" >Delete User</button>
             </form>
         </div>
         @endforeach
