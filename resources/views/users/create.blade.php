@@ -1,6 +1,6 @@
 <form action=" {{route('users.store')}} " method="POST">
     @csrf
-    <div>
+    <div class="">
         <label for="">Name</label>
         <input type="text" name="name" id="name" required>
     </div>
