@@ -1,6 +1,7 @@
 <x-layout>
     <div class="mb-8 max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
         <h1 class="text-3xl font-bold text-center mb-4">User Details</h1>
+        <h1 class="text-3xl font-bold text-center mb-4">User and ID</h1>
 
         <div class="mb-6">
             <p class="text-gray-700 font-semibold text-lg">ID: <span class="text-gray-900">{{ $user->id }}</span></p>
