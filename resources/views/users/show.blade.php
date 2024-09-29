@@ -3,6 +3,7 @@
         <h1 class="text-3xl font-bold text-center mb-4">User Details</h1>
 
         <div class="mb-6">
+            <p class="text-gray-700 font-semibold text-lg">ID: <span class="text-gray-900">{{ $user->id }}</span></p>
             <p class="text-gray-700 font-semibold text-lg">Name: <span class="text-gray-900">{{ $user->name }}</span></p>
             <p class="text-gray-700 font-semibold text-lg">Email: <span class="text-gray-900">{{ $user->email }}</span></p>
         </div>
